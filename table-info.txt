@@ -1,0 +1,4 @@
+database name:
+
+INSERT INTO inventory (name,category_id,quantity,price,brand,src,description,isdefault) VALUES
+	                  ('Bread' | 2 | 70 | 1.50 | 'Bakery Delights' | '/images/bread.svg' | 'Soft and wholesome whole grain bread, freshly baked.' | true)

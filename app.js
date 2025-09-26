@@ -3,6 +3,8 @@ const path = require("node:path");
 require("dotenv").config();
 
 const indexRouter = require("./routes/index.js");
+const stockRouter = require("./routes/stock.js");
+const genreRouter = require("./routes/genre.js");
 
 const hostname = 'localhost';
 const port = process.env.PORT || 3000;
@@ -18,6 +20,8 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use("/", indexRouter);
+app.use("/stock", stockRouter);
+app.use("/genre", genreRouter);
 
 app.listen(port, (error) => {
     if (error){

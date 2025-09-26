@@ -1,0 +1,55 @@
+a {
+    color: black;
+    text-decoration: none;
+}
+
+body {
+    background-color: rgba(128, 128, 128, 0.26);
+}
+
+.index-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.index-header-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.index-header-text {
+    text-align: center;
+    font-size: 42px;
+}
+
+.index-welcome-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.index-welcome-text {
+    text-align: center;
+    font-size: 24px;
+    max-width: 75%;
+}
+
+.index-link-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.index-link {
+    width: fit-content;
+    border: black solid 1px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 15px;
+}
+
+.index-link:hover {
+    background-color: black;
+    color: white;
+}

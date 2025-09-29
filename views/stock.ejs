@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stock.css">
+    <title><%= title %></title>
+</head>
+
+<body>
+    <div class="stock-wrapper">
+
+        <div class="stock-header-wrapper">
+            <div class="stock-header-text">
+                Browse TBA Stock
+            </div>
+            <div class="stock-add-wrapper">
+                <a href="/stock/new">
+                    <div class="stock-add-text">+ Add a Product</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="stock-products-wrapper">
+            <% products.forEach((product) => { %>
+                <a href="/stock/<%=product.id%>">
+                    <div class="product-card">
+                        <img
+                            src="<%= product.src %>"
+                            class="product-card-img"
+                        />
+                        <div class="product-card-info">
+                            <div class="product-card-title"><%= product.name %></div>
+                            <div class="product-card-info-text">$<%= product.price %></div>
+                            <div class="product-card-info-text">Artist: <%= product.artist %></div>
+                            <div class="product-card-info-text">Genre: <%= product.genre %></div>
+                        </div>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

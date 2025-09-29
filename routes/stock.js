@@ -3,8 +3,10 @@ const router = express.Router();
 
 const stockController = require("../controllers/stockController");
 
-router.route("/").get((req, res) => {
-    res.render("index", { title: "Stock Page"});
+router.route("/").get(stockController.getAllProducts);
+
+router.route("/new").get((req, res) => {
+    res.render("index", { title: "Add Stock"});
 });
 
 module.exports = router;

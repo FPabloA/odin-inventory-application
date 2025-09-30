@@ -24,6 +24,21 @@ const getAllProducts = async (req, res) => {
         });
 }
 
+async function showProduct(req, res) {
+    const id = req.params.id;
+    const products = await db.filterById(id);
+
+    res.render("singleProduct", { product: products});
+}
+
+async function addProduct(req, res) {
+    const listedGenres = await db.getGenres();
+
+    res.render("newProduct", { listedGenres });
+}
+
 module.exports = {
     getAllProducts,
+    showProduct,
+    addProduct,
 };

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/newProduct.css">
+    <title>Add a New Product</title>
+</head>
+<body>
+    <div class="new-product-wrapper">
+
+        <div class="new-product-header-wrapper">
+            <div class="new-product-header-text">
+                Add TBA Products
+            </div>
+        </div>
+
+        <form 
+            class="new-product-form"
+            action="/stock/new"
+            method="post"
+            enctype="multipart/form-data"
+        >
+
+        <div class="new-product-form-item">
+            <label for="name">Name: </label>
+            <input type="text" name="name" required/>
+        </div>
+
+        <div class="new-product-form-item">
+            <label for="price">Price: </label>
+            <input type="number" name="price" min="0.01" step="any" required/>
+        </div>
+        
+        <div class="new-product-form-item">
+            <label for="quantity">Quantity: </label>
+            <input type="number" name="quantity" min="1" max="999" required/>
+        </div>
+
+        <div class="new-product-form-item">
+            <label for="artist">Artist: </label>
+            <input type="text" name="artist" required/>
+        </div>
+
+        <div class="new-product-form-item">
+            <label for="description">Description: </label>
+            <textarea name="description" maxlength="250"></textarea>
+        </div>
+
+        <div class="new-product-form-item">
+            <label for="genre">Genre: </label>
+            <select name="genre" id="genre">
+                <% listedGenres.forEach((genre) => { %>
+                <option value="<%= genre.genre %>">
+                    <%= genre.genre %>
+                </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div class="new-product-form-item">
+            <label for="src">Image: </label>
+            <input type="file" name="src" accept="image/png, image/jpeg, image/svg+xml"/>
+            <input type="text" name="isDefault" hidden value="false"/>
+        </div>
+
+        <button type="submit" class="new-product-submit-btn">
+            submit
+        </button>
+        
+        </form>
+    </div>
+</body>
+</html>

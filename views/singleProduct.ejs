@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/singleProduct.css">
+    <title>TBA: <%= product.name %></title>
+</head>
+<body>
+    <div class="product-wrapper">
+
+        <div class="product-header-wrapper">
+            <div class="product-header-text">
+                TBA Products
+            </div>
+        </div>
+
+        <div class="product-info-wrapper">
+            <div class="product-info-title">
+                <%= product.name %>
+            </div>
+            <img class="product-info-img" 
+                 src="<%= product.src %>">
+            <div class="product-info-text-wrapper">
+                <div class="product-info-desc-text">
+                    <%= product.description %>
+                </div>
+                <div class="product-info-text">
+                    Artist: <%= product.artist %>
+                </div>
+                <div class="product-info-text">
+                    Genre: <%= product.genre %>
+                </div>
+                <div class="product-info-text">
+                    Quantity: <%= product.quantity %>
+                </div>
+                <div class="product-info-text">
+                    Price: $<%= product.price %>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

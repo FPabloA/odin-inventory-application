@@ -12,6 +12,14 @@ const getAllProducts = async (query = null) => {
     }
 };
 
+async function filterById(id) {
+    const { rows } = await pool.query(
+        "SELECT inventory.*, genres.genre, genres.color FROM inventory JOIN genres ON inventory.genre_id = genres.id WHERE inventory.id = $1", [id]
+    );
+
+    return rows[0];
+}
+
 async function getGenres() {
     const { rows } = await pool.query(
         "SELECT * FROM genres ORDER BY genre ASC;"
@@ -31,4 +39,5 @@ module.exports = {
     getAllProducts,
     getGenres,
     getGenreIdByName,
+    filterById,
 };

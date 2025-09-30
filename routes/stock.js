@@ -5,8 +5,8 @@ const stockController = require("../controllers/stockController");
 
 router.route("/").get(stockController.getAllProducts);
 
-router.route("/new").get((req, res) => {
-    res.render("index", { title: "Add Stock"});
-});
+router.route("/new").get(stockController.addProduct);
+
+router.route("/:id").get(stockController.showProduct);
 
 module.exports = router;

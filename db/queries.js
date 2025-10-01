@@ -27,7 +27,7 @@ async function addProductToDb(newProduct) {
     }
 
     await pool.query(
-        "INSERT INTO inventory ( name, quantity, price, brand, description, genre_id, src, isDefault) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+        "INSERT INTO inventory ( name, quantity, price, artist, description, genre_id, src, isDefault) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
         [
             newProduct.name,
             newProduct.quantity,
@@ -80,7 +80,7 @@ async function editProduct({id, name, quantity, price, genre, artist, src, descr
     }
 
     if (artist) {
-        updates.push(`brand = $${index++}`);
+        updates.push(`artist = $${index++}`);
         values.push(artist);
     }
 

@@ -1,0 +1,16 @@
+body {
+    background-color: rgba(128, 128, 128, 0.26);
+}
+
+.edit-product-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+.edit-product-header-text {
+    font-size: 42px;
+}

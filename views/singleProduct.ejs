@@ -13,6 +13,17 @@
             <div class="product-header-text">
                 TBA Products
             </div>
+            <div class="product-edit-del-row">
+                <a href="/stock/edit/<%= product.id %>">
+                    <div class="product-edit-text">Edit Product</div>
+                </a>
+
+                <% if (!product.isdefault) { %>
+                    <form action="/stock/delete/<%= product.id %>" method="post">
+                        <button type="submit" class="product-del-btn">Delete</button>
+                    </form>
+                <% } %>
+            </div>
         </div>
 
         <div class="product-info-wrapper">

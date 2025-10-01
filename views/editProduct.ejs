@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/editProduct.css">
+    <title>Edit <%= product.name %></title>
+</head>
+<body>
+    <div class="edit-product-wrapper">
+
+        <div class="edit-product-header-wrapper">
+            <div class="edit-product-header-text">
+                TBA Products
+            </div>
+        </div>
+
+        <div class="edit-product-content-wrapper">
+            <form 
+            class="edit-product-form"
+            action="/stock/edit/<%= product.id %>"
+            method="post"
+            >
+            <div class="edit-product-view-img-wrapper">
+                <% if(product.isdefault === true) { %>
+                    <img
+                        src="<%= product.src %>"
+                        class="edit-product-view-img"
+                    />
+                <% } else { %>
+                    <img
+                        src="<%= product.src %>"
+                        class="edit-product-view-img"
+                    />
+                    <input type="file" name="src" id="src" />
+                <% } %>
+            </div>
+
+            <div class="edit-product-info-wrapper">
+                
+            </div>
+
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

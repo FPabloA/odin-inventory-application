@@ -22,7 +22,7 @@
             method="post"
             >
             <div class="edit-product-view-img-wrapper">
-                <% if(product.isdefault === true) { %>
+                <% if(product.isdefault) { %>
                     <img
                         src="<%= product.src %>"
                         class="edit-product-view-img"
@@ -37,9 +37,48 @@
             </div>
 
             <div class="edit-product-info-wrapper">
+                <% if(product.isdefault === true) { %>
+                    <div class="edit-product-info-text"><%= product.name %></div>
+                <% } else { %>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" value="<%= product.name %>" required />
+                <% } %>
+
+                <div class="edit-product-form-item">
+                    <label for="price">Price: </label>
+                    <input type="number" name="price" min="0.01" step="any" value="<%= product.price %>" required/>
+                </div>
                 
+                <div class="edit-product-form-item">
+                    <label for="quantity">Quantity: </label>
+                    <input type="number" name="quantity" min="1" max="999" value="<%= product.quantity %>" required/>
+                </div>
+
+                <div class="edit-product-form-item">
+                    <label for="artist">Artist: </label>
+                    <input type="text" name="artist" value="<%= product.artist %>" required/>
+                </div>
+
+                <div class="edit-product-form-item">
+                    <label for="description">Description: </label>
+                    <textarea name="description" maxlength="250"><%= product.description %></textarea>
+                </div>
+
+                <div class="edit-product-form-item">
+                    <label for="genre">Genre: </label>
+                    <select name="genre" id="genre">
+                        <% listedGenres.forEach((genre) => { %>
+                        <option value="<%= genre.genre %>">
+                            <%= genre.genre %>
+                        </option>
+                        <% }) %>
+                    </select>
+                </div>
             </div>
 
+                <button type="submit" class="edit-product-submit-btn">
+                    submit
+                </button>
             </form>
         </div>
 

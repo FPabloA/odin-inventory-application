@@ -13,7 +13,8 @@ router.route("/new").get(stockController.addProduct)
 
 router.route("/:id").get(stockController.showProduct);
 
-router.route("/edit/:id").get(stockController.editProductGet);
+router.route("/edit/:id").get(stockController.editProductGet)
+.post(upload.single("src"), stockController.editProductPost);
 
 router.route("/delete/:id").post(stockController.deleteProduct);
 

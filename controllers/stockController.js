@@ -93,6 +93,7 @@ async function editProductPost(req, res) {
         name,
         quantity,
         price,
+        genre,
         artist,
         src,
         description,

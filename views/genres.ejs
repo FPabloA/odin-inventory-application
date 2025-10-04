@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/genres.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="genres-wrapper">
+
+        <div class="genres-header-wrapper">
+            <div class="genres-header-text">
+                TBA Products
+            </div>
+
+            <div class="genres-add-wrapper">
+                <a href="/genre/new">
+                    <div class="genres-add-text">+ Add a Genre</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="genre-content-wrapper">
+            <% listedGenres.forEach((genre) => { %>
+                <a href="/stock?genre=<%= genre.genre %>">
+                    <div class="genre-card" style="background-color: <%= genre.color %>;" >
+                        <div class="genre-card-text"><%= genre.genre %></div>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+
+    </div>
+    
+</body>
+</html>

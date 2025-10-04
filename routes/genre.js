@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const genreController = require("../controllers/stockController");
+const genreController = require("../controllers/genreController");
 
-router.route("/").get((req, res) => {
-    res.render("index", { title: "Genre Page"});
-});
+router.route("/").get(genreController.getAllGenres);
 
 module.exports = router;

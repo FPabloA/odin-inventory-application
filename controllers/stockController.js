@@ -11,6 +11,9 @@ const getAllProducts = async (req, res) => {
         res.render("stock", {
             title: "TBA Stock",
             products: products,
+            listedGenres: genres,
+            selectedGenre: req.query.genre,
+            sort: req.query.sort,
         });
 
         return;

@@ -2,6 +2,11 @@ const pool = require("./pool");
 
 const getAllProducts = async (query = null) => {
     try {
+
+        if (query) {
+            return filterStock(query);
+        }
+
         const { rows } = await pool.query(
             "SELECT inventory.*, genres.genre, genres.color FROM inventory JOIN genres ON genre_id = genres.id;"
         );
@@ -11,6 +16,42 @@ const getAllProducts = async (query = null) => {
         console.error(error);
     }
 };
+
+const filterStock = async (query) => {
+    let sortSQLQuery = "";
+    if (query.sort) {
+        const [column, direction] = query.sort
+            .replace(/([a-z])([A-Z])/g, "$1 $2")
+            .toLowerCase()
+            .split(" ");
+        
+        if (!["price", "name"].includes(column) || !["asc", "desc"].includes(direction)) {
+            sortSQLQuery = "";
+        }
+        else {
+            sortSQLQuery = `ORDER BY ${column} ${direction}`;
+        }
+    }
+
+    let genreSQLQuery = "";
+    if (query.genre && query.genre.length > 0) {
+        if(Array.isArray(query.genre)) {
+            const genre = `${query.genre
+                .map((gen) => `'${gen}'`)
+                .join(", ")})`
+            genreSQLQuery = `WHERE genres.genre IN ${genre}`;
+        }
+        else {
+            genreSQLQuery = `WHERE genres.genre IN ('${query.genre}')`;
+        }
+    }
+
+    const { rows } = await pool.query(
+        `SELECT inventory.*, genres.genre, genres.color FROM inventory JOIN genres ON genre_id = genres.id ${genreSQLQuery} ${sortSQLQuery};`
+    );
+
+    return rows
+}
 
 async function filterById(id) {
     const { rows } = await pool.query(
@@ -118,6 +159,13 @@ async function getGenreIdByName(genreName) {
     return rows[0].id;
 }
 
+async function addGenre(newGenre) {
+    await pool.query(
+        "INSERT INTO genres (genre, color) VALUES ($1, $2);",
+        [newGenre.genre, newGenre.color]
+    );
+}
+
 module.exports = {
     getAllProducts,
     getGenres,
@@ -126,4 +174,5 @@ module.exports = {
     addProductToDb,
     deleteProduct,
     editProduct,
+    addGenre,
 };

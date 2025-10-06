@@ -7,7 +7,7 @@ a {
     text-decoration: none;
 }
 
-.new-product-header-wrapper {
+.new-genre-header-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,7 +16,7 @@ a {
     border-bottom: 2px solid black;
 }
 
-.new-product-header-text {
+.new-genre-header-text {
     font-size: 42px;
 }
 
@@ -28,7 +28,7 @@ form {
     gap: 20px;
 }
 
-.new-product-form-item {
+.new-genre-form-item {
     display: flex;
     flex-direction: column;
     min-width: 35%;
@@ -51,7 +51,7 @@ select {
     font-size: 20px;
 }
 
-.new-product-submit-btn{
+.new-genre-submit-btn{
     background-color: transparent;
     border: black solid 1px;
     border-radius: 10px;

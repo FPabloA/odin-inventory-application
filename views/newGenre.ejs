@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/newGenre.css">
+    <title><%= title %></title>
 </head>
 <body>
-    
+    <div class="new-genre-wrapper">
+        <a href="/">
+            <div class="new-genre-header-wrapper">
+                <div class="new-genre-header-text">
+                    Add TBA Genre
+                </div>
+            </div>
+        </a>
+        
+
+        <form 
+            class="new-genre-form"
+            action="/genre/new"
+            method="post"
+        >
+
+        <div class="new-genre-form-item">
+            <label for="genre">Genre: </label>
+            <input type="text" name="genre" required/>
+        </div>
+
+        <div class="new-genre-form-item">
+            <label for="color">Label Color: </label>
+            <input type="color" name="color" id="color" required/>
+        </div>
+
+        <button type="submit" class="new-genre-submit-btn">
+            submit
+        </button>
+        
+        </form>
+    </div>
 </body>
 </html>

@@ -17,7 +17,7 @@ async function newGenreGet(req, res) {
     res.render("newGenre",  { title: "Add a Genre" });
 }
 
-async function newGenrePost(req,res) {
+async function newGenrePost(req, res) {
     const input = {
         genre: req.body.genre,
         color: req.body.color,
@@ -33,4 +33,6 @@ async function newGenrePost(req,res) {
 
 module.exports = {
     getAllGenres,
+    newGenreGet,
+    newGenrePost,
 }

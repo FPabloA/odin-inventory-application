@@ -31,8 +31,33 @@ async function newGenrePost(req, res) {
     }
 }
 
+async function deleteGenreGet(req, res) {
+    const getGenres = await db.getGenres();
+
+    const listedGenres = getGenres.filter(
+        (genre) => genre.genre !== "Uncategorized"
+    );
+    res.render("deleteGenre", {
+        title: "Delete a genre",
+        listedGenres: listedGenres,
+    })
+}
+
+async function deleteGenrePost(req, res) {
+    const genre = req.body.genre;
+    try {
+        await db.deleteGenre(genre);
+        res.redirect("/genre")
+    }
+    catch (err) {
+        res.status(500).send("Error deleting genre", err);
+    }
+}
+
 module.exports = {
     getAllGenres,
     newGenreGet,
     newGenrePost,
+    deleteGenreGet,
+    deleteGenrePost,
 }

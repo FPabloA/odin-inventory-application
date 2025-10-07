@@ -27,6 +27,11 @@ a{
     border-radius: 10px;
 }
 
+.genres-btn-row {
+    display: flex;
+    gap: 20px;
+}
+
 .genre-content-wrapper {
     margin-top: 50px;
     display: flex;

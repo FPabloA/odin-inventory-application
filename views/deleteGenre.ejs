@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/deleteGenre.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="del-genre-wrapper">
+
+        <div class="del-genre-header-wrapper">
+            <a href="/">
+                <div class="del-genre-header-text">
+                    Delete TBA Genre
+                </div>
+            </a>
+            
+        </div>
+
+        <form 
+            class="del-genre-form"
+            action="/genre/delete"
+            method="post"
+        >
+
+        <div class="del-genre-form-item">
+            <label for="genre">Genre: </label>
+            <select name="genre" id="genre">
+                <% listedGenres.forEach((genre) => { %>
+                <option value="<%= genre.genre %>">
+                    <%= genre.genre %>
+                </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <button type="submit" class="del-genre-submit-btn">
+            submit
+        </button>
+        
+        </form>
+    </div>
+</body>
+</html>

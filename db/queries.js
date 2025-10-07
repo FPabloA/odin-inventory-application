@@ -166,6 +166,16 @@ async function addGenre(newGenre) {
     );
 }
 
+async function deleteGenre(genre) {
+    const defaultGenreId = 1;
+    const genreId = await getGenreIdByName(genre);
+    await pool.query(
+        "UPDATE inventory SET genre_id = $1 WHERE genre_id = $2 and isDefault = false",
+        [defaultGenreId, genreId]
+    );
+    await pool.query("DELETE FROM genres where genre = $1", [genre]);
+}
+
 module.exports = {
     getAllProducts,
     getGenres,
@@ -175,4 +185,5 @@ module.exports = {
     deleteProduct,
     editProduct,
     addGenre,
+    deleteGenre,
 };

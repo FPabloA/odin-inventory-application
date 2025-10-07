@@ -1,0 +1,60 @@
+body {
+    background-color: rgba(128, 128, 128, 0.26);
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.del-genre-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+.del-genre-header-text {
+    font-size: 42px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    align-items: center;
+    gap: 20px;
+}
+
+.del-genre-form-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 35%;
+}
+
+label {
+    font-size: 24px;
+}
+
+input {
+    font-size: 20px;
+    width: 100%;
+}
+
+textarea {
+    font-size: 20px;
+}
+
+select {
+    font-size: 20px;
+}
+
+.del-genre-submit-btn{
+    background-color: transparent;
+    border: black solid 1px;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 24px;
+}
